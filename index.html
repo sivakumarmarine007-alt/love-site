@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My property 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    overflow-x: hidden;
+    text-align: center;
+    color: white;
+}
+
+/* START SCREEN */
+#startScreen {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+button {
+    padding: 15px 40px;
+    font-size: 20px;
+    border: none;
+    border-radius: 30px;
+    background: white;
+    color: #ff4d6d;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+/* MAIN CONTENT */
+#mainContent {
+    display: none;
+    padding: 20px;
+    animation: fadeIn 2s ease;
+}
+
+h1 {
+    font-size: 35px;
+}
+
+/* LOVE TEXT */
+.love-text {
+    font-size: 18px;
+    max-width: 600px;
+    margin: 20px auto;
+    line-height: 1.8;
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+/* GALLERY */
+.gallery {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.gallery img {
+    width: 250px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 20px;
+    transform: scale(0);
+    transition: 0.6s;
+}
+
+.show img {
+    transform: scale(1);
+}
+
+/* HEARTS */
+.heart {
+    position: absolute;
+    animation: float 5s linear infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(100vh); opacity: 1; }
+    100% { transform: translateY(-10vh); opacity: 0; }
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- MUSIC -->
+<audio id="music" src="your-song.mp3"></audio>
+
+<!-- START -->
+<div id="startScreen">
+    <h1>💖 Special Surprise 💖</h1>
+    <button onclick="openSurprise()">Open 🎁</button>
+</div>
+
+<!-- MAIN -->
+<div id="mainContent">
+
+    <h1>For my property💋🫂😘💖</h1>
+
+    <!-- TAMIL KAVITHAI -->
+    <p class="love-text">
+    உன் வாழ்க்கையில் நான் வந்த நாள் முதல்,<br><br>
+
+    என் உலகமே நிறங்களால் நிரம்பியது 💖<br><br>
+
+    உன் சிரிப்பு என் அமைதியும்,<br>
+    உன் கோபம் கூட என் பாசம்தான் 🥺<br><br>
+
+    என் நாள்கள் எல்லாம் உன்னோடே தொடங்கி,<br>
+    உன்னோடே முடிவதுதான் என் ஆசை 💫<br><br>
+
+    நீ என் வாழ்க்கையில் வந்ததே,<br>
+    எனக்கு கிடைத்த மிக பெரிய பரிசு 🎁<br><br>
+
+    Happy Birthday pattu ❤️
+    </p>
+
+    <!-- PHOTOS -->
+    <div class="gallery" id="gallery">
+        <img src="img1.jpg">
+        <img src="img2.jpg">
+        <img src="img3.jpg">
+    </div>
+
+</div>
+
+<script>
+function openSurprise() {
+    document.getElementById("startScreen").style.display = "none";
+    document.getElementById("mainContent").style.display = "block";
+
+    document.getElementById("music").play();
+
+    setTimeout(() => {
+        document.getElementById("gallery").classList.add("show");
+    }, 500);
+
+    createHearts();
+}
+
+/* HEART ANIMATION */
+function createHearts() {
+    setInterval(() => {
+        let heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "💖";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = (Math.random() * 20 + 20) + "px";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 5000);
+    }, 300);
+}
+</script>
+
+</body>
+</html>
